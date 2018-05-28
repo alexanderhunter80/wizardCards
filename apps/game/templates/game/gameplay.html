@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Wizard Cards</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- link to  css -->
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> -->
+    <link rel="stylesheet" href="../../static/game/gameCSS.css">
+
+
+    <!-- jquery and ajax etc -->
+    <script>
+
+        $(document).ready(function(){
+
+            // flip card on click
+            $(".card").on("click", function(){
+                $(this).toggleClass("facedown faceup");
+            });
+
+        });  // end of document.ready
+
+    </script>
+</head>
+
+
+<!-- body starts here -->
+<body>
+
+    <div class="header">
+        <h1>header</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="card facedown" id="c00">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c01">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c02">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c03">
+                <div class="cardheight"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card facedown" id="c10">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card faceup" id="c11">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card faceup" id="c12">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c13">
+                <div class="cardheight"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card facedown" id="c20">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card faceup" id="c21">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card faceup" id="c22">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c23">
+                <div class="cardheight"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card facedown" id="c30">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c31">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c32">
+                <div class="cardheight"></div>
+            </div>
+            <div class="card facedown" id="c33">
+                <div class="cardheight"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+</body>
+</html>
