@@ -103,3 +103,5 @@ prompt.get('action', function (err, result){
     }
 
 });
+
+// get this whole "wait for instruction" thing to repeat after finishing the first instruction
