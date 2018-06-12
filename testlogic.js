@@ -5,11 +5,11 @@ const Deck = require('./classes/deck.js');
 var prompt = require('prompt');
 
 
-let deck = new Deck();
-deck.initializeAsElementDeck();
-console.log(deck);
+let elementDeck = new Deck();
+elementDeck.initializeAsElementDeck();
+console.log(elementDeck);
 
-let gameboard = new Gameboard(deck);
+let gameboard = new Gameboard(elementDeck);
 gameboard.printState();
 
 prompt.start();
@@ -36,7 +36,7 @@ prompt.get('action', function (err, result){
     if(result.action == 'obscure') {
         let doObscure = function() {
             console.log('Please input coordinates or "cancel":');
-            console.log('(format as y1,x1 - origin at top left)');
+            console.log('(format as y,x - origin at top left)');
             prompt.get('coords', function(err, result) {
                 // handle err
                 if(result.coords == 'cancel'){
@@ -57,7 +57,7 @@ prompt.get('action', function (err, result){
     if(result.action == 'scry') {
         let doScry = function() {
             console.log('Please input coordinates or "cancel":');
-            console.log('(format as y1,x1 - origin at top left)');
+            console.log('(format as y,x - origin at top left)');
             prompt.get('coords', function(err, result) {
                 // handle err
                 if(result.coords == 'cancel'){
@@ -72,6 +72,27 @@ prompt.get('action', function (err, result){
             });
         }
         doScry();
+    }
+
+    // replace - discard one card and replace it
+    if(result.action == 'replace') {
+        let doReplace = function() {
+            console.log('Please input coordinates or "cancel":');
+            console.log('(format as y,x - origin at top left)');
+            prompt.get('coords', function(err, result) {
+                // handle err
+                if(result.coords == 'cancel'){
+                    return result.coords; // in case of later use of global commands - could be null instead
+                }
+                else if(result.coords) {
+                    let co = result.coords.split(',');
+                    console.log(co);
+                    gameboard.replace(co[0],co[1]);
+                    doReplace();
+                }
+            });
+        }
+        doReplace();
     }
 
 

@@ -3,6 +3,7 @@ const ElementCard = require('./element.js');
 module.exports = class Deck {
     constructor() {
         this.cards = [];
+        this.discard = [];
     }
 
     initializeAsElementDeck(){
@@ -30,10 +31,14 @@ module.exports = class Deck {
         return this.cards.pop();
     };
 
-    shuffle(discards){ 
-        // pass in cards from discard deck
-        while(discards[0] != null){
-            this.push(discards.pop());
+    push(card){
+        this.cards.push(card);
+    }
+
+    shuffle(){ 
+        // pass in cards from discard
+        while(this.discard[0] != null){
+            this.push(this.discard.pop());
         };
 
         // shuffle everything together
@@ -46,6 +51,6 @@ module.exports = class Deck {
         }
     };
 
-
+    // detect empty this.cards and shuffle()
 
 }
