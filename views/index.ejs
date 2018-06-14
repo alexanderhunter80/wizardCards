@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            var socket = io();
+
+            socket.on('connected', () => {
+                console.log('Connected')
+            });
+
+            $('#b1').on('click', () => {
+                console.log('Emit:  genericEvent');
+                socket.emit('genericEvent');
+            });
+
+            socket.on('genericResponse', () => {
+                console.log('Heard:  genericResponse');
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s4">
+                <a id="b1" class="waves-effect waves-light btn">genericEvent</a>
+            </div>
+            <div class="col s4">
+                <a id="b2" class="waves-effect waves-light btn"></a>
+            </div>
+            <div class="col s4">
+                <a id="b3" class="waves-effect waves-light btn"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4">
+                <a id="b4" class="waves-effect waves-light btn"></a>
+            </div>
+            <div class="col s4">
+                <a id="b5" class="waves-effect waves-light btn"></a>
+            </div>
+            <div class="col s4">
+                <a id="b6" class="waves-effect waves-light btn"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4">
+                <a id="b7" class="waves-effect waves-light btn"></a>
+            </div>
+            <div class="col s4">
+                <a id="b8" class="waves-effect waves-light btn"></a>
+            </div>
+            <div class="col s4">
+                <a id="b9" class="waves-effect waves-light btn"></a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
