@@ -30,6 +30,7 @@ prompt.get('action', function (err, result){
                 gameboard.weave(co[0],co[1],co[2],co[3]);
             }
         });
+        // functionalize and recur
     }
 
     // obscure - set cards' faceUp to false
